@@ -28,6 +28,7 @@ module ExercismWeb
 
     use Routes::Profile
     use Routes::Inbox
+    use Routes::Pipeline
     use Routes::Languages
     use Routes::Static
     use Routes::Legacy
@@ -47,6 +48,5 @@ module ExercismWeb
     use Routes::Subscriptions
     use Routes::User
     use Routes::Errors
-    use Routes::Pipeline
   end
 end

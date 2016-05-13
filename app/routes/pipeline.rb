@@ -1,14 +1,11 @@
-require_relative '../../x'
-
 module ExercismWeb
   module Routes
     class Pipeline < Core
       get '/pipeline' do
-        binding.pry
-        tracks = X::Track.all
-        active, inactive = tracks.partition { |t| t.active? }
-        inactive.sort! { |a, b| b.problems.count <=> a.problems.count }
-        erb :"languages/index", locals: { active: active, inactive: inactive }
+        "tracks = X::Track.all
+                active, inactive = tracks.partition { |t| t.active? }
+                inactive.sort! { |a, b| b.problems.count <=> a.problems.count }
+                erb 'languages/index', locals: { active: active, inactive: inactive }"
       end
 
       get '/pipeline/:track_id' do |track_id|
