@@ -47,5 +47,6 @@ module ExercismWeb
     use Routes::Subscriptions
     use Routes::User
     use Routes::Errors
+    use Routes::Pipeline
   end
 end

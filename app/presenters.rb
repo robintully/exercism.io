@@ -3,6 +3,7 @@ module ExercismWeb
     {
       Assignment: 'assignment',
       Languages: 'languages',
+      Pipeline: 'pipeline',
       Inbox: 'inbox',
       Tracks: 'tracks',
       Setup: 'setup',
