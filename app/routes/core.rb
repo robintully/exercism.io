@@ -26,21 +26,21 @@ module ExercismWeb
           user: {
             id: current_user.id,
             username: current_user.username,
-          },
-          context: request.path_info,
-          app: {
-            version: ENV["BUILD_ID"] || "unknown"
-          },
-        }
-        Bugsnag.auto_notify($!, metadata, request)
-        erb :"errors/internal"
-      end
+            },
+            context: request.path_info,
+            app: {
+              version: ENV["BUILD_ID"] || "unknown"
+              },
+            }
+            Bugsnag.auto_notify($!, metadata, request)
+            erb :"errors/internal"
+          end
 
-      before do
-        cache_control :private
-      end
+          before do
+            cache_control :private
+          end
 
-      use Rack::Flash
+          use Rack::Flash
 
       helpers Helpers::NotificationCount # total hack
       helpers Helpers::FuzzyTime
@@ -101,6 +101,10 @@ module ExercismWeb
           AssumableUser.all
         end
 
+        def assumable_users
+          AssumableUser.all
+        end
+
         def active_nav(path)
           if path == request.path_info
             "active"
@@ -117,7 +121,7 @@ module ExercismWeb
           path = language_path_for_slug(language, slug)
           %{<li class="#{active_nav(path)}">
           <a href="#{path}">#{nav_text(slug)}</a>
-        </li>}
+          </li>}
         end
 
         def dashboard_assignment_nav(language, slug=nil, counts=nil)
@@ -126,7 +130,7 @@ module ExercismWeb
           path = language_path_for_slug(language, slug)
           %{<li class="#{active_nav(path)}">
           <a href="#{path}">#{nav_text(slug)} (#{counts})</a>
-        </li>}
+          </li>}
         end
 
         def namify(slug)
